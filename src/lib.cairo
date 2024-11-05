@@ -1,15 +1,25 @@
-// 声明一个函数 combine_water，接收两个参数 a 和 b，返回它们的总和。
-fn combine_water(a: felt252, b: felt252) -> felt252 {
-    // 返回 a 和 b 的和
-    a + b
-}
+// Function to check if a number is prime
+fn is_prime(volume: felt252) -> bool {
+    // If volume is less than 2, it is not prime
+    if volume < 2 {
+        return false; // Return false for numbers less than 2
+    }
 
-// 主函数，程序的入口点
-fn main() {
-    // 调用 combine_water 函数，将 5 和 3 作为参数传入
-    let total_water = combine_water(5, 3);
-    
-    // 打印总水量
-    println!("Total water: {}", total_water);
+    // Initialize the loop variable
+    let mut i: felt252 = 2;
+
+    // Use a loop to check for divisibility
+    loop {
+        // If i is greater than or equal to volume, it means no divisors were found
+        if i >= volume {
+            break true; // Break and return true if no divisors were found
+        }
+        // Check if volume is divisible by i
+        if volume % i == 0 {
+            break false; // Break and return false if divisible
+        }
+        // Increment i to check the next number
+        i += 1; 
+    }
 }
 
